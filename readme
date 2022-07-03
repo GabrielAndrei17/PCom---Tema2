@@ -1,0 +1,25 @@
+Tema 2 - PCom
+Andrei Gabriel 323CB
+
+Pentru implementarea celor 2 functii de server si de subscriber, am pornit
+de la rezolvarea laboratorul 8, am definit structurile de date folosite de program
+in helpers.h si am modificat server.c si client.c conform enuntului din tema.
+
+#server.c
+
+Se initializeaza vectorul de clienti si se pornesc cei doi socketi prin care serverul
+comunica cu subscriber-ul si clientul udp. In bucla while:
+-se verifica daca un client udp se conecteaza, i se preia output-ul pe care i se va trimite
+clientilor abonati la acest topic.
+
+-se verifica daca un client tcp se conecteaza. Se verifica daca e deja conectat, e client nou
+sau este offline.
+
+-daca se trimite un pachet de la un subscriber, se va abona la topicul respectiv (dezabona sau deconecta)
+
+-cat timp va primi exit de la consola
+
+#subscriber.c
+
+Se va deschide socket-ul server-ului si se va trimite catre server id-ul pentru a se conecta la acesta.
+In bucla while vom gestiona mesajele primite de la consola: de abonare la un topic, de dezabonare.
